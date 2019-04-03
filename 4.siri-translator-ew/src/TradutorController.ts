@@ -9,6 +9,7 @@ const client = new Translator(
   true,
 );
 
+const sleep = ms => new Promise(r => setTimeout(r, ms * 1000));
 const speak = async (text, voice) => {
   const Say = require('say');
   Say.speak(text, voice)
@@ -23,7 +24,6 @@ const translate = params =>
       error ? reject(error as string) : resolve(data as string),
     ),
   );
-const sleep = ms => new Promise(r => setTimeout(r, ms * 1000))
 
 export default class TradutorController {
   private _disposable: Disposable;
@@ -75,7 +75,7 @@ export default class TradutorController {
       if (difference <= LIMIT || this.text === '') {
         return;
       }
-      console.log('traduzindo...', this.text);
+      console.log('translating...', this.text);
       const text = this.text;
       this.text = '';
       try {
