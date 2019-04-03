@@ -2,7 +2,6 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-const say = require('say');
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -49,32 +48,3 @@ class TradutorController {
     await speak(text)
   }
 }
-// class TradutorController {
-//   constructor() {
-//     let subscriptions: vscode.Disposable[] = [];
-//     vscode.window.onDidChangeTextEditorSelection(
-//       this._onEvent,
-//       this,
-//       subscriptions,
-//     );
-//   }
-//   dispose() {}
-//   async _onEvent() {
-//     const speak = (text, voice) =>
-//       new Promise((resolve, reject) =>
-//         say(text, voice, 0.5, (err, res) => (err ? reject(err) : resolve(res))),
-//       );
-//     const editor = vscode.window.activeTextEditor;
-//     if (!editor) {
-//       return;
-//     }
-//     const select = editor.selection;
-//     const text = editor.document.getText(select);
-//     if (!text) {
-//       return;
-//     }
-
-//     console.log('text', text);
-//     await speak(text, 'Luciana');
-//   }
-// }
