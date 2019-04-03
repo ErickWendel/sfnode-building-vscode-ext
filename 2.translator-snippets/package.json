@@ -12,7 +12,10 @@
     "contributes": {
         "snippets": [{
             "language": "typescript",
-            "path": "./snippets/snippets.json"
+            "path": "./snippets/snippets-ts.json"
+        }, {
+            "language": "json",
+            "path": "./snippets/snippets-json.json"
         }]
     }
 }

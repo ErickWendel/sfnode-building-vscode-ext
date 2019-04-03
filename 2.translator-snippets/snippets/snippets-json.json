@@ -1,0 +1,17 @@
+{
+    "SnippetNew": {
+        "prefix": "snippet:new",
+
+        "body": [
+            "{",
+            "\t\"${1:Name}\": {",
+            "\t\t\"prefix\" : \"${2:prefix}\",",
+            "\t\t\"body\" : [",
+            "\t\t\t\"$0\"",
+            "\t\t]",
+            "\t}",
+            "}"
+        ]
+
+    }
+}
