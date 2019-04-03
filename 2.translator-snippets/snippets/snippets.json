@@ -1,0 +1,30 @@
+{
+  "TranslatorClass": {
+    "prefix": "translator:class",
+
+    "body": [
+      "class TradutorController {",
+      "constructor() {       ",
+      "let subscriptions: vscode.Disposable[] = []; ",
+      "vscode.window.onDidChangeTextEditorSelection(",
+      "  this._onEvent, ",
+      "  this, ",
+      "  subscriptions, ",
+      ");",
+      "     }            ",
+
+      "dispose() {}            ",
+      "async _onEvent() {}            ",
+      "}        "
+    ]
+  },
+  "Speak": {
+    "prefix": "speak",
+    "body": [
+      "const speak = (text, voice) =>",
+      "     new Promise((resolve, reject) =>",
+      "       say(text, voice, (err, res) => (err ? reject(err) : resolve(res))),",
+      "     );"
+    ]
+  }
+}
