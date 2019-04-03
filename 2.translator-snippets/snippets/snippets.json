@@ -1,30 +1,48 @@
 {
   "TranslatorClass": {
-    "prefix": "translator:class",
+    "prefix": "sfnode:translator:class",
 
     "body": [
       "class TradutorController {",
-      "constructor() {       ",
-      "let subscriptions: vscode.Disposable[] = []; ",
-      "vscode.window.onDidChangeTextEditorSelection(",
-      "  this._onEvent, ",
-      "  this, ",
-      "  subscriptions, ",
-      ");",
-      "     }            ",
-
-      "dispose() {}            ",
-      "async _onEvent() {}            ",
-      "}        "
+      "  constructor() {",
+      "    let subscriptions: vscode.Disposable[] = [];",
+      "    vscode.window.onDidChangeTextEditorSelection(",
+      "      this._onEvent,",
+      "      this,",
+      "      subscriptions,",
+      "    );",
+      "  }",
+      "  dispose() {}",
+      "  async _onEvent() {",
+      "    $0",
+      "  }",
+      "}"
     ]
   },
   "Speak": {
-    "prefix": "speak",
+    "prefix": "sfnode:translator:speak",
     "body": [
-      "const speak = (text, voice) =>",
-      "     new Promise((resolve, reject) =>",
-      "       say(text, voice, (err, res) => (err ? reject(err) : resolve(res))),",
-      "     );"
+      "const sleep = ms => new Promise(r => setTimeout(r, ms * 1000))",
+      "const speak = async (text, voice = 'Moira') =>  {",
+      "  const Say = require('say');",
+      "  Say.speak(text, voice)",
+      "  return sleep(text.length / 10);",
+      "}"
+    ]
+  },
+  "EditorText": {
+    "prefix": "sfnode:editor:get-editor",
+    "body":[
+     "const editor = vscode.window.activeTextEditor;",
+     "if (!editor) return;"
+    ]
+  },
+  "EditorGetText": {
+    "prefix": "sfnode:editor:get-text",
+    "body": [
+      "const select = editor.selection;",
+      "const text = editor.document.getText(select);",
+      "if (!text) return;"
     ]
   }
 }
