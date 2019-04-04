@@ -23,8 +23,8 @@
   "Speak": {
     "prefix": "sfnode:translator:speak",
     "body": [
-      "const sleep = ms => new Promise(r => setTimeout(r, ms * 1000))",
-      "const speak = async (text, voice = 'Moira') =>  {",
+      "const sleep = (ms: number) => new Promise(r => setTimeout(r, ms * 1000))",
+      "const speak = async (text: string, voice = 'Moira') =>  {",
       "  const Say = require('say');",
       "  Say.speak(text, voice)",
       "  return sleep(text.length / 10);",
